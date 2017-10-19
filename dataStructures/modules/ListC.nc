@@ -1,3 +1,4 @@
+
 /**
  * ANDES Lab - University of California, Merced
  * This class provides a simple list.
@@ -91,6 +92,7 @@ implementation{
 	command t List.get(uint16_t position){
 		return container[position];
 	}
+
 	command bool List.isFull() {
 		if (size == MAX_SIZE)
 			return TRUE;
