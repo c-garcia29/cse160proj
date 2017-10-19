@@ -1,4 +1,3 @@
-
 /**
  * ANDES Lab - University of California, Merced
  * This class provides a simple list.
