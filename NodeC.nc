@@ -10,7 +10,8 @@
 #include <Timer.h>
 #include "includes/CommandMsg.h"
 #include "includes/packet.h"
-
+#include "include/neighbor.h"
+#include "include/routing.h"
 configuration NodeC{
 }
 implementation {
@@ -31,6 +32,22 @@ implementation {
     components CommandHandlerC;
     Node.CommandHandler -> CommandHandlerC;
 
-	components new ListC(pack, 64) as PacketListC;
-	Node.PacketList -> PacketListC;
+    components new ListC(pack, 32) as PacketListC;
+    Node.PacketList -> PacketListC;
+
+    components new TimerMilliC() as NeighborTimerC;
+    Node.NeighborTimer -> NeighborTimerC;
+
+    components RandomC as RandomC;
+    Node.Random -> RandomC;
+
+    components new FloodingC() as floodingC;
+    Node.flooding -> floodingC;
+
+    components new NeighborDiscoveryC() as neighborDiscoveryC;
+    Node.neighborDiscovery -> neighborDiscoveryC;
+
+    components new LSRoutingC() as lsRoutingC;
+    Node.lsRouting -> lsRoutingC;
 }
+
